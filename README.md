@@ -21,11 +21,6 @@ PRTG Sensor - SSH Script - Yum update status - Days since last yum update
 6. Optional: Set Warning or Error limit in days under "Edit Channel Settings" > "Enable Limits" > "Upper Warning Limit" AND "Upper Error Limit"
 7. Ready!
 
-# Known issues
-
-## Users with capital "U" in the username who run yum
-The script searches for a capital "U" in the output of "yum history", if there is a user with a capital U in the name who did run the yum command, the script will take this date as the last yum update moment. Then this is not necessarily the last update, could also mean last install or remove date in that particular case.
-
 # Compatibility
 
 This sensor is tested with Linux Centos 6.x and 7.x
