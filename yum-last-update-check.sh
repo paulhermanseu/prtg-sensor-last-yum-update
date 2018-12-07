@@ -7,10 +7,11 @@
 #3      Protocol Error (e.g. web server returns a 404)
 #4      Content Error (e.g. a web page does not contain a required word)
 
-LASTUPDATE=`yum history | grep U | head -n 1 | cut -d'|' -f3`
+LASTUPDATE=`yum history | cut -d'|' -f3,4 | grep U | head -n 1 | cut -d'|' -f1`
+#cut sets delimiter at | and takes column 3 and 4 => Date and Time + Action(s)
 #grep U matches with Update and U
 #head -n1 takes upper line
-#cut sets delimiter at | and takes column 3
+#cut sets delimiter at | and takes column 1 => Date and Time
 #OUTPUT EXAMPLE 2016-06-03 10:54
 
 LASTUPDATEDAYSAGO=$(( ( $(date +%s) - $(date -d "$LASTUPDATE" +%s) ) /(24 * 60 * 60 ) ))
